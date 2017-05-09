@@ -1,0 +1,29 @@
+{
+  "name": "@studio/fail",
+  "version": "0.0.0",
+  "description": "Fail with an Error object and a conventional code property",
+  "main": "lib/fail.js",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "mocha",
+    "posttest": "npm run lint",
+    "watch": "mocha --watch",
+    "preversion": "npm test",
+    "version": "changes",
+    "postversion": "git push --follow-tags && npm publish"
+  },
+  "author": "Maximilian Antoni <max@javascript.studio>",
+  "eslintConfig": {
+    "extends": "@studio"
+  },
+  "devDependencies": {
+    "@studio/changes": "^1.1.0",
+    "@studio/eslint-config": "^1.0.0",
+    "eslint": "^3.19.0",
+    "mocha": "^3.3.0",
+    "sinon": "^2.2.0"
+  }
+}
