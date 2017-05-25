@@ -31,12 +31,40 @@ describe('fail', () => {
     assert.equal(error.code, INVALID);
   });
 
+  it('adds the given cause on the error object', () => {
+    const cause = new TypeError();
+    let error;
+
+    fail((err) => { error = err; }, 'Oups!', cause);
+
+    assert.equal(error.cause, cause);
+  });
+
+  it('adds the given cause and error code on the error object', () => {
+    const cause = new TypeError();
+    let error;
+
+    fail((err) => { error = err; }, 'Oups!', cause, INVALID);
+
+    assert.equal(error.cause, cause);
+    assert.equal(error.code, INVALID);
+  });
+
   it('does not allow to change the error code', () => {
     let error;
     fail((err) => { error = err; }, 'Oups!', INVALID);
 
     assert.throws(() => {
       error.code = 'X';
+    }, TypeError);
+  });
+
+  it('does not allow to change the cause', () => {
+    let error;
+    fail((err) => { error = err; }, 'Oups!', new TypeError());
+
+    assert.throws(() => {
+      error.cause = 'X';
     }, TypeError);
   });
 

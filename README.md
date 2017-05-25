@@ -39,8 +39,9 @@ error codes as needed.
 
 ## API
 
-- `fail(callback, message[, code])`: Create an `Error` with the given message
-  and `code` property. If no `code` is provided it defaults to `E_FAILED`.
+- `fail(callback, message[, cause][, code])`: Create an `Error` with the given
+  message and `cause` and `code` properties. If no `code` is provided it
+  defaults to `E_FAILED`. The `cause` must be an error object.
 - `isFatal(error)`: Whether the given error has a `code` property the starts
   with `E_` or has no `code` property.
 
