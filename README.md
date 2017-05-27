@@ -1,4 +1,4 @@
-# JavaScript Studio Fail
+# Studio Fail
 
 Fail with an `Error` object and a conventional `code` property.
 
