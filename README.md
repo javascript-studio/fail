@@ -1,6 +1,6 @@
 # Studio Fail
 
-Fail with an `Error` object and a conventional `code` property.
+🚨 Fail with an `Error` object and a conventional `code` property.
 
 ## Usage
 
@@ -32,7 +32,7 @@ Error codes follow these conventions:
   be shown to the user.
 - Other error codes have no prefix and are not considered fatal, for example a
   validation error. The provided `message` may be shown to the user.
-- If no `code` property is provided, assume `E_FAILED`.
+- If no `code` property is provided, default to `E_FAILED`.
 
 The provided error codes can be handled generically. You may define additional
 error codes as needed.
@@ -51,3 +51,11 @@ error codes as needed.
 - `INVALID`: Invalid or missing argument or parameter.
 - `FORBIDDEN`: User is not allowed to access.
 - `NOT_FOUND`: Resource does not exist.
+
+## Related modules
+
+- 👻 [Studio Log][1] is a tiny ndjson logger that is `code` and `cause` aware.
+- 📦 [Studio Changes][2] is used to create the changelog for this module.
+
+[1]: https://github.com/javascript-studio/studio-log
+[2]: https://github.com/javascript-studio/studio-changes
