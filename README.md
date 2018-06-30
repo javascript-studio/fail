@@ -37,6 +37,12 @@ Error codes follow these conventions:
 The provided error codes can be handled generically. You may define additional
 error codes as needed.
 
+## Install
+
+```bash
+❯ npm i @studio/fail
+```
+
 ## API
 
 - `fail(callback, message[, cause][, code])`: Create an `Error` with the given
