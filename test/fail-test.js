@@ -1,7 +1,7 @@
 /*eslint-env mocha*/
 'use strict';
 
-const assert = require('assert');
+const { assert, refute } = require('@sinonjs/referee');
 const { fail, E_FAILED, INVALID } = require('..');
 
 describe('fail', () => {
@@ -11,8 +11,8 @@ describe('fail', () => {
 
     fail((err) => { error = err; }, 'Oups!');
 
-    assert.equal(error instanceof Error, true);
-    assert.equal(error.message, 'Oups!');
+    assert.isError(error);
+    assert.equals(error.message, 'Oups!');
   });
 
   it('defaults the error code to E_FAILED', () => {
@@ -20,7 +20,7 @@ describe('fail', () => {
 
     fail((err) => { error = err; }, 'Oups!');
 
-    assert.equal(error.code, E_FAILED);
+    assert.equals(error.code, E_FAILED);
   });
 
   it('adds the given error code on the error object', () => {
@@ -28,7 +28,7 @@ describe('fail', () => {
 
     fail((err) => { error = err; }, 'Oups!', INVALID);
 
-    assert.equal(error.code, INVALID);
+    assert.equals(error.code, INVALID);
   });
 
   it('adds the given cause on the error object', () => {
@@ -37,7 +37,7 @@ describe('fail', () => {
 
     fail((err) => { error = err; }, 'Oups!', cause);
 
-    assert.equal(error.cause, cause);
+    assert.equals(error.cause, cause);
   });
 
   it('adds the given cause and error code on the error object', () => {
@@ -46,8 +46,8 @@ describe('fail', () => {
 
     fail((err) => { error = err; }, 'Oups!', cause, INVALID);
 
-    assert.equal(error.cause, cause);
-    assert.equal(error.code, INVALID);
+    assert.equals(error.cause, cause);
+    assert.equals(error.code, INVALID);
   });
 
   it('adds the given properties on the error object', () => {
@@ -55,45 +55,45 @@ describe('fail', () => {
 
     fail((err) => { error = err; }, 'Oups!', INVALID, { some: 42 });
 
-    assert.deepEqual(error.properties, { some: 42 });
-    assert.equal(error.code, INVALID);
-    assert.equal(error.cause, undefined);
+    assert.equals(error.properties, { some: 42 });
+    assert.equals(error.code, INVALID);
+    refute.defined(error.cause);
   });
 
   it('does not allow to change the error code', () => {
     let error;
     fail((err) => { error = err; }, 'Oups!', INVALID);
 
-    assert.throws(() => {
+    assert.exception(() => {
       error.code = 'X';
-    }, TypeError);
+    }, /TypeError/);
   });
 
   it('does not allow to change the cause', () => {
     let error;
     fail((err) => { error = err; }, 'Oups!', new TypeError());
 
-    assert.throws(() => {
+    assert.exception(() => {
       error.cause = 'X';
-    }, TypeError);
+    }, /TypeError/);
   });
 
   it('does not allow to change the properties', () => {
     let error;
     fail((err) => { error = err; }, 'Oups!', INVALID, { some: 42 });
 
-    assert.throws(() => {
+    assert.exception(() => {
       error.properties = 'X';
-    }, TypeError);
+    }, /TypeError/);
   });
 
   it('does not allow to change the properties content', () => {
     let error;
     fail((err) => { error = err; }, 'Oups!', INVALID, { some: 42 });
 
-    assert.throws(() => {
+    assert.exception(() => {
       error.properties.some = 'X';
-    }, TypeError);
+    }, /TypeError/);
   });
 
 });
