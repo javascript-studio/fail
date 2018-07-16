@@ -50,6 +50,16 @@ describe('fail', () => {
     assert.equal(error.code, INVALID);
   });
 
+  it('adds the given properties on the error object', () => {
+    let error;
+
+    fail((err) => { error = err; }, 'Oups!', INVALID, { some: 42 });
+
+    assert.deepEqual(error.properties, { some: 42 });
+    assert.equal(error.code, INVALID);
+    assert.equal(error.cause, undefined);
+  });
+
   it('does not allow to change the error code', () => {
     let error;
     fail((err) => { error = err; }, 'Oups!', INVALID);
@@ -65,6 +75,24 @@ describe('fail', () => {
 
     assert.throws(() => {
       error.cause = 'X';
+    }, TypeError);
+  });
+
+  it('does not allow to change the properties', () => {
+    let error;
+    fail((err) => { error = err; }, 'Oups!', INVALID, { some: 42 });
+
+    assert.throws(() => {
+      error.properties = 'X';
+    }, TypeError);
+  });
+
+  it('does not allow to change the properties content', () => {
+    let error;
+    fail((err) => { error = err; }, 'Oups!', INVALID, { some: 42 });
+
+    assert.throws(() => {
+      error.properties.some = 'X';
     }, TypeError);
   });
 
