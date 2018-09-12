@@ -1,5 +1,16 @@
 # Changes
 
+## 1.3.0
+
+- 🍏 [`6751501`](https://github.com/javascript-studio/studio-fail/commit/6751501da092a24c5c8955ac53661d8b5e0e2dde)
+  Add `failure` API
+- 📚 [`3131271`](https://github.com/javascript-studio/studio-fail/commit/3131271e3fefdcadd471e3827d9077253f5ebeb4)
+  Add examples to docs
+- 📚 [`381bdde`](https://github.com/javascript-studio/studio-fail/commit/381bdde151dff3385d74e2403083110b5adf680c)
+  Update Studio Changes for `--footer` support
+
+_Released by [Maximilian Antoni](https://github.com/mantoni) on 2018-09-12._
+
 ## 1.2.0
 
 - 🍏 [`af764fc`](https://github.com/javascript-studio/studio-fail/commit/af764fc52525522b635107bb2ea1fe542528bd74)
