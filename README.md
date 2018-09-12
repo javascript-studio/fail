@@ -60,6 +60,41 @@ error codes as needed.
 - `FORBIDDEN`: User is not allowed to access.
 - `NOT_FOUND`: Resource does not exist.
 
+## Examples
+
+Invoking callbacks with errors:
+
+```js
+const { fail, INVALID } = require('@studio/fail');
+
+// Fail with a message:
+fail(callback, 'Oups!');
+
+// The previous is the same as this:
+fail(callback, 'Oups!', E_FAILED);
+
+// Fail with `code` INVALID:
+fail(callback, 'Oups!', INVALID);
+
+// Fail with a `cause`:
+const cause = new Error();
+fail(callback, 'Oups!', cause);
+
+// Fail with a `cause` and `code` INVALID:
+fail(callback, 'Oups!', cause, INVALID);
+
+// Fail with `properties` and `code` INVALID:
+fail(callback, 'Oups!', INVALID, { some: 42 });
+```
+
+Throwing errors:
+
+```js
+const { fail, FORBIDDEN } = require('@studio/fail');
+
+throw failure('Oups!', FORBIDDEN);
+```
+
 ## Related modules
 
 - 👻 [Studio Log][1] is a tiny ndjson logger that is `code` and `cause` aware.
