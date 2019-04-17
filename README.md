@@ -2,20 +2,26 @@
 
 🚨 Fail with an `Error` object and a conventional `code` property.
 
+> Conventional tools for callback based error reporting and processing.
+
 ## Usage
 
 ```js
-const { fail, INVALID } = require('@studio/fail');
+const fs = require('fs');
+const { fail, then, INVALID } = require('@studio/fail');
 
-function analyze(script, callback) {
-  if (!script) {
-    fail(callback, 'Missing script', INVALID);
+function read(filename, callback) {
+  if (!filename) {
+    fail(callback, 'Missing filename', INVALID);
     return;
   }
 
-  // ...
+  fs.readFile(filename, 'utf8', then(callback, (content) => {
 
-  callback(null);
+    // ...
+
+    callback(null);
+  }));
 }
 ```
 
@@ -32,7 +38,7 @@ Error codes follow these conventions:
   be shown to the user.
 - Other error codes have no prefix and are not considered fatal, for example a
   validation error. The provided `message` may be shown to the user.
-- If no `code` property is provided, default to `E_FAILED`.
+- If no `code` property is provided, it defaults to `E_FAILED`.
 
 The provided error codes can be handled generically. You may define additional
 error codes as needed.
@@ -52,6 +58,10 @@ error codes as needed.
   and invoked the given `callback` with it.
 - `isFatal(error)`: Whether the given error has a `code` property the starts
   with `E_` or has no `code` property.
+- `then(callback, next)`: Create a callback function that invokes
+  `callback(err)` if an error occurred and `next(result)` on success. Throws if
+  the function is invoked more than once with error code `E_FAILED` and `err`
+  as the cause.
 
 ### Error codes
 
