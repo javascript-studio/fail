@@ -1,5 +1,12 @@
 # Changes
 
+## 1.5.0
+
+- 🍏 [`1f0522a`](https://github.com/javascript-studio/studio-fail/commit/1f0522a556c20ca6152d6ee66277f899beba741e)
+  Use return value from `next` as the callback result
+
+_Released by [Maximilian Antoni](https://github.com/mantoni) on 2019-04-17._
+
 ## 1.4.0
 
 - 🍏 [`b7852a3`](https://github.com/javascript-studio/studio-fail/commit/b7852a3df720f63806151e1a4354ceeddddc270a)
