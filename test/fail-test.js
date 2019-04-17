@@ -1,7 +1,7 @@
 /*eslint-env mocha*/
 'use strict';
 
-const { assert, refute } = require('@sinonjs/referee');
+const { assert } = require('@sinonjs/referee-sinon');
 const { fail, E_FAILED, INVALID } = require('..');
 
 describe('fail', () => {
@@ -57,7 +57,7 @@ describe('fail', () => {
 
     assert.equals(error.properties, { some: 42 });
     assert.equals(error.code, INVALID);
-    refute.defined(error.cause);
+    assert.isUndefined(error.cause);
   });
 
   it('does not allow to change the error code', () => {

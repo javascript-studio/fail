@@ -1,7 +1,7 @@
 /*eslint-env mocha*/
 'use strict';
 
-const { assert } = require('@sinonjs/referee');
+const { assert } = require('@sinonjs/referee-sinon');
 const { E_FAILED, INVALID, FORBIDDEN, NOT_FOUND } = require('..');
 
 describe('constants', () => {
