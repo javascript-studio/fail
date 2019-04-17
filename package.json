@@ -24,7 +24,7 @@
     "@sinonjs/referee-sinon": "^5.0.0",
     "@studio/changes": "^1.7.0",
     "@studio/eslint-config": "^1.0.2",
-    "eslint": "^5.1.0",
+    "eslint": "^5.16.0",
     "mocha": "^5.2.0"
   }
 }
