@@ -12,15 +12,16 @@ const { fail, then, INVALID } = require('@studio/fail');
 
 function read(filename, callback) {
   if (!filename) {
+    // Easily fail with a conventional error:
     fail(callback, 'Missing filename', INVALID);
     return;
   }
 
+  // Wrap callbacks with and error handling, guarding from multiple invocations:
   fs.readFile(filename, 'utf8', then(callback, (content) => {
 
-    // ...
-
-    callback(null);
+    // Non-undefined return value is passed to callback:
+    return content.trim();
   }));
 }
 ```
@@ -61,7 +62,8 @@ error codes as needed.
 - `then(callback, next)`: Create a callback function that invokes
   `callback(err)` if an error occurred and `next(result)` on success. Throws if
   the function is invoked more than once with error code `E_FAILED` and `err`
-  as the cause.
+  as the cause. If `next` returns a non-undefined value, the `callback` is
+  invoked with that result.
 
 ### Error codes
 

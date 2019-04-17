@@ -80,4 +80,40 @@ describe('then', () => {
     });
   });
 
+  it('invokes callback with `next` return value', () => {
+    const callback = sinon.fake();
+    const next = sinon.fake.returns(42);
+
+    then(callback, next)();
+
+    assert.calledOnce(next);
+    assert.calledOnceWith(callback, null, 42);
+  });
+
+  it('invokes callback with `next` returned `null`', () => {
+    const callback = sinon.fake();
+    const next = sinon.fake.returns(null);
+
+    then(callback, next)();
+
+    assert.calledOnce(next);
+    assert.calledOnceWith(callback, null, null);
+  });
+
+  it('throws if invoked again after return', () => {
+    const callback = sinon.fake();
+    const next = sinon.fake.returns(7);
+
+    const cb = then(callback, next);
+    cb();
+
+    assert.exception(() => {
+      cb(null, 666);
+    }, {
+      name: 'Error',
+      code: 'E_FAILED',
+      message: 'Callback invoked twice'
+    });
+  });
+
 });
