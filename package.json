@@ -1,6 +1,6 @@
 {
   "name": "@studio/fail",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Fail with an Error object and a conventional code property",
   "main": "lib/fail.js",
   "engines": {

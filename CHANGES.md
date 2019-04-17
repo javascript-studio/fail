@@ -1,5 +1,16 @@
 # Changes
 
+## 1.4.0
+
+- 🍏 [`b7852a3`](https://github.com/javascript-studio/studio-fail/commit/b7852a3df720f63806151e1a4354ceeddddc270a)
+  Add `then(callback, next)`
+- 🐛 [`045004b`](https://github.com/javascript-studio/studio-fail/commit/045004b4179757a46a476fbfb7f11f21bc3d89b2)
+  Fix security issues
+- ✨ [`72b54c2`](https://github.com/javascript-studio/studio-fail/commit/72b54c2a89e14858af0fe0292db12ffeb261f46a)
+  Switch to `@sinonjs/referee-sinon`
+
+_Released by [Maximilian Antoni](https://github.com/mantoni) on 2019-04-17._
+
 ## 1.3.0
 
 - 🍏 [`6751501`](https://github.com/javascript-studio/studio-fail/commit/6751501da092a24c5c8955ac53661d8b5e0e2dde)
