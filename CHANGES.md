@@ -1,5 +1,40 @@
 # Changes
 
+## 1.6.0
+
+- 📚 [`6c71081`](https://github.com/javascript-studio/fail/commit/6c71081079a3347ef6d2c1cfd2d00dd766f0ddf3)
+  Modernize documentation and add license
+- ✨ [`5c707d3`](https://github.com/javascript-studio/fail/commit/5c707d39b1b2b923c1f02e26ae19ed0a976539e1)
+  Remove superfluous eslint-env mocha
+- ✨ [`3cc7847`](https://github.com/javascript-studio/fail/commit/3cc78477c4a3a6c80b36c05ddcf46926839c199f)
+  Remove copyright
+- ✨ [`bee063e`](https://github.com/javascript-studio/fail/commit/bee063eac3b93f85249cc5f159f84aba36bdf3cf)
+  Configure files and license
+- ✨ [`843115c`](https://github.com/javascript-studio/fail/commit/843115c4916c8333c0f9d95c9ba55561ee27ebfa)
+  Configure GitHub actions
+- ✨ [`63faad0`](https://github.com/javascript-studio/fail/commit/63faad02e7c587d62a9822b42f54a5a3b2d5e958)
+  Require node 14
+- ✨ [`213644b`](https://github.com/javascript-studio/fail/commit/213644b003d701c13021107ce28a237283c2cafd)
+  Setup husky and lint-staged
+- ✨ [`29a93ce`](https://github.com/javascript-studio/fail/commit/29a93ce90bd05c73709f3e02cd6ab1cb4c335938)
+  Setup prettier and reformat all files
+- ✨ [`a442bbc`](https://github.com/javascript-studio/fail/commit/a442bbc6fef2aa6b047dddcab0aef3ce189b7235)
+  Upgrade referee-sinon
+- ✨ [`8eb5a4a`](https://github.com/javascript-studio/fail/commit/8eb5a4aa04f27bd6d4b2d576b99034401ae4b518)
+  Upgrade Studio Changes
+- ✨ [`84f4a37`](https://github.com/javascript-studio/fail/commit/84f4a37980b7080f10b205c6fdb97a2d25694d9b)
+  Upgrade mocha to v10
+- ✨ [`1f9cc67`](https://github.com/javascript-studio/fail/commit/1f9cc67b8c8be12a592931aaf070c1a5f057e231)
+  Upgrade eslint-config and eslint
+- ✨ [`a111eb5`](https://github.com/javascript-studio/fail/commit/a111eb51ff2a8cd326c89bd10c048b2488c08984)
+  Upgrade npm lockfile
+- ✨ [`aef4e59`](https://github.com/javascript-studio/fail/commit/aef4e599ceebf68ffeed0796b04b73e8f2fdae89)
+  Add .gitignore
+- ✨ [`ddbb13c`](https://github.com/javascript-studio/fail/commit/ddbb13c2b3fbdf8aaa587d5437e5be5f7b2d8720)
+  Rename repository
+
+_Released by [Maximilian Antoni](https://github.com/mantoni) on 2022-05-14._
+
 ## 1.5.0
 
 - 🍏 [`1f0522a`](https://github.com/javascript-studio/studio-fail/commit/1f0522a556c20ca6152d6ee66277f899beba741e)
