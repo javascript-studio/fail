@@ -2,7 +2,7 @@
   Studio Fail
 </h1>
 <p align="center">
-  🚨 Fail with an `Error` object and a conventional `code` property.
+  🚨 Fail with an <code>Error</code> object and a conventional <code>code</code> property.
 </p>
 <p align="center">
   <a href="https://www.npmjs.com/package/@studio/fail">
