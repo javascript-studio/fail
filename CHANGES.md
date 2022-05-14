@@ -1,5 +1,14 @@
 # Changes
 
+## 1.6.1
+
+- 📚 [`ee755b0`](https://github.com/javascript-studio/fail/commit/ee755b0f97365224bda75096130902d4c388a565)
+  Improve header in readme and add badges
+- 📚 [`ce785ba`](https://github.com/javascript-studio/fail/commit/ce785ba540fa6a6fac313f8e5158a6c0ebfc74f8)
+  Fix example in documentation
+
+_Released by [Maximilian Antoni](https://github.com/mantoni) on 2022-05-14._
+
 ## 1.6.0
 
 - 📚 [`6c71081`](https://github.com/javascript-studio/fail/commit/6c71081079a3347ef6d2c1cfd2d00dd766f0ddf3)
