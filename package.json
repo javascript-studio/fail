@@ -16,7 +16,7 @@
     "postversion": "git push --follow-tags && npm publish"
   },
   "author": "Maximilian Antoni <max@javascript.studio>",
-  "homepage": "https://github.com/javascript-studio/studio-fail",
+  "homepage": "https://github.com/javascript-studio/fail",
   "eslintConfig": {
     "extends": "@studio"
   },
