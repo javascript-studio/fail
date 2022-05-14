@@ -5,7 +5,6 @@ const { assert } = require('@sinonjs/referee-sinon');
 const { failure, E_FAILED, INVALID } = require('..');
 
 describe('failure', () => {
-
   it('creates an error using the message', () => {
     const error = failure('Oups!');
 
@@ -81,5 +80,4 @@ describe('failure', () => {
       error.properties.some = 'X';
     }, /TypeError/);
   });
-
 });

@@ -5,7 +5,6 @@ const { assert, refute, sinon } = require('@sinonjs/referee-sinon');
 const { then } = require('..');
 
 describe('then', () => {
-
   it('invokes callback with error', () => {
     const callback = sinon.fake();
     const next = sinon.fake();
@@ -35,14 +34,17 @@ describe('then', () => {
     const cb = then(callback, next);
     cb(err);
 
-    assert.exception(() => {
-      cb(err);
-    }, {
-      name: 'Error',
-      code: 'E_FAILED',
-      message: 'Callback invoked twice',
-      cause: err
-    });
+    assert.exception(
+      () => {
+        cb(err);
+      },
+      {
+        name: 'Error',
+        code: 'E_FAILED',
+        message: 'Callback invoked twice',
+        cause: err
+      }
+    );
   });
 
   it('throws if called twice with result', () => {
@@ -52,13 +54,16 @@ describe('then', () => {
     const cb = then(callback, next);
     cb(null, 42);
 
-    assert.exception(() => {
-      cb(null, 42);
-    }, {
-      name: 'Error',
-      code: 'E_FAILED',
-      message: 'Callback invoked twice'
-    });
+    assert.exception(
+      () => {
+        cb(null, 42);
+      },
+      {
+        name: 'Error',
+        code: 'E_FAILED',
+        message: 'Callback invoked twice'
+      }
+    );
   });
 
   it(`throws if called once with result and then with error, adding the error
@@ -70,14 +75,17 @@ describe('then', () => {
     const cb = then(callback, next);
     cb(null, 42);
 
-    assert.exception(() => {
-      cb(err);
-    }, {
-      name: 'Error',
-      code: 'E_FAILED',
-      message: 'Callback invoked twice',
-      cause: err
-    });
+    assert.exception(
+      () => {
+        cb(err);
+      },
+      {
+        name: 'Error',
+        code: 'E_FAILED',
+        message: 'Callback invoked twice',
+        cause: err
+      }
+    );
   });
 
   it('invokes callback with `next` return value', () => {
@@ -107,13 +115,15 @@ describe('then', () => {
     const cb = then(callback, next);
     cb();
 
-    assert.exception(() => {
-      cb(null, 666);
-    }, {
-      name: 'Error',
-      code: 'E_FAILED',
-      message: 'Callback invoked twice'
-    });
+    assert.exception(
+      () => {
+        cb(null, 666);
+      },
+      {
+        name: 'Error',
+        code: 'E_FAILED',
+        message: 'Callback invoked twice'
+      }
+    );
   });
-
 });

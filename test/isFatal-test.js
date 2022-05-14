@@ -5,7 +5,6 @@ const { assert } = require('@sinonjs/referee-sinon');
 const { isFatal, E_FAILED, INVALID } = require('..');
 
 describe('isFatal', () => {
-
   it('returns true for error with no code property', () => {
     const err = new Error();
 
@@ -46,5 +45,4 @@ describe('isFatal', () => {
 
     assert.isTrue(isFatal(err));
   });
-
 });
