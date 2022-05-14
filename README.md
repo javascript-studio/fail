@@ -4,7 +4,22 @@
 
 > Conventional tools for callback based error reporting and processing.
 
-## Usage
+## Usage (async / await)
+
+```js
+const { fail, then, INVALID } = require('@studio/fail');
+
+function read(filename, callback) {
+  if (!filename) {
+    // Easily fail with a conventional error:
+    throw failure('Missing filename', INVALID);
+  }
+
+  // ...
+}
+```
+
+## Usage (callback)
 
 ```js
 const fs = require('fs');
@@ -77,43 +92,49 @@ error codes as needed.
 
 ## Examples
 
-Invoking callbacks with errors:
+Throwing errors:
 
 ```js
-const { fail, INVALID } = require('@studio/fail');
+const { failure, INVALID } = require('@studio/fail');
 
 // Fail with a message:
-fail(callback, 'Oups!');
+throw failure('Oups!');
 
 // The previous is the same as this:
-fail(callback, 'Oups!', E_FAILED);
+throw failure('Oups!', E_FAILED);
 
 // Fail with `code` INVALID:
-fail(callback, 'Oups!', INVALID);
+throw failure('Oups!', INVALID);
 
 // Fail with a `cause`:
 const cause = new Error();
-fail(callback, 'Oups!', cause);
+throw failure('Oups!', cause);
 
 // Fail with a `cause` and `code` INVALID:
-fail(callback, 'Oups!', cause, INVALID);
+throw failure('Oups!', cause, INVALID);
 
 // Fail with `properties` and `code` INVALID:
-fail(callback, 'Oups!', INVALID, { some: 42 });
+throw failure('Oups!', INVALID, { some: 42 });
 ```
 
-Throwing errors:
+Invoking callbacks with errors:
 
 ```js
 const { fail, FORBIDDEN } = require('@studio/fail');
 
-throw failure('Oups!', FORBIDDEN);
+fail(callback, 'Oups!', FORBIDDEN);
 ```
 
 ## Related modules
 
 - 👻 [Studio Log][1] is a tiny ndjson logger that is `code` and `cause` aware.
 - 📦 [Studio Changes][2] is used to create the changelog for this module.
+
+## License
+
+MIT
+
+<p align="center">Made with ❤️ on 🌍<p>
 
 [1]: https://github.com/javascript-studio/studio-log
 [2]: https://github.com/javascript-studio/studio-changes
