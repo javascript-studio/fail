@@ -7,7 +7,7 @@
 ## Usage (async / await)
 
 ```js
-const { fail, then, INVALID } = require('@studio/fail');
+const { failure, INVALID } = require('@studio/fail');
 
 function read(filename, callback) {
   if (!filename) {
