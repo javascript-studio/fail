@@ -18,11 +18,14 @@ function read(filename, callback) {
   }
 
   // Wrap callbacks with and error handling, guarding from multiple invocations:
-  fs.readFile(filename, 'utf8', then(callback, (content) => {
-
-    // Non-undefined return value is passed to callback:
-    return content.trim();
-  }));
+  fs.readFile(
+    filename,
+    'utf8',
+    then(callback, (content) => {
+      // Non-undefined return value is passed to callback:
+      return content.trim();
+    })
+  );
 }
 ```
 

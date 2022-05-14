@@ -9,11 +9,12 @@
   "scripts": {
     "lint": "eslint .",
     "test": "mocha",
-    "posttest": "npm run lint",
     "watch": "mocha --watch",
-    "preversion": "npm test",
+    "preversion": "npm run lint && npm run prettier:check && npm test",
     "version": "changes --commits --footer",
-    "postversion": "git push --follow-tags && npm publish"
+    "postversion": "git push --follow-tags && npm publish",
+    "prettier:check": "prettier --check '**/*.{js,md}'",
+    "prettier:write": "prettier --write '**/*.{js,md}'"
   },
   "author": "Maximilian Antoni <max@javascript.studio>",
   "homepage": "https://github.com/javascript-studio/fail",
@@ -27,6 +28,7 @@
     "eslint": "^8.15.0",
     "eslint-plugin-mocha": "^10.0.3",
     "eslint-plugin-node": "^11.1.0",
-    "mocha": "^10.0.0"
+    "mocha": "^10.0.0",
+    "prettier": "^2.6.2"
   }
 }
