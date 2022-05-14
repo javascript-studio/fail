@@ -1,8 +1,23 @@
-# Studio Fail
-
-🚨 Fail with an `Error` object and a conventional `code` property.
-
-> Conventional tools for callback based error reporting and processing.
+<h1 align="center">
+  Studio Fail
+</h1>
+<p align="center">
+  🚨 Fail with an `Error` object and a conventional `code` property.
+</p>
+<p align="center">
+  <a href="https://www.npmjs.com/package/@studio/fail">
+    <img src="https://img.shields.io/npm/v/@studio/fail.svg" alt="npm Version">
+  </a>
+  <a href="https://semver.org">
+    <img src="https://img.shields.io/:semver-%E2%9C%93-blue.svg" alt="SemVer">
+  </a>
+  <a href="https://github.com/javascript-studio/fail/actions">
+    <img src="https://github.com/javascript-studio/studio-fail/workflows/Build/badge.svg" alt="Build Status">
+  </a>
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg" alt="License">
+  </a>
+</p>
 
 ## Usage (async / await)
 
