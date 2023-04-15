@@ -1,102 +1,72 @@
 'use strict';
 
-const { assert } = require('@sinonjs/referee-sinon');
+const { assert, match, sinon } = require('@sinonjs/referee-sinon');
 const { fail, E_FAILED, INVALID } = require('..');
+
+/**
+ * @typedef {import('..').Failure} Failure
+ */
 
 describe('fail', () => {
   it('invokes the given callback with an error using the message', () => {
-    let error;
+    const callback = sinon.fake();
 
-    fail((err) => {
-      error = err;
-    }, 'Oups!');
+    fail(callback, 'Oups!');
 
-    assert.isError(error);
-    assert.equals(error.message, 'Oups!');
+    assert.calledOnceWith(callback, match({ message: 'Oups!' }));
   });
 
   it('defaults the error code to E_FAILED', () => {
-    let error;
+    const callback = sinon.fake();
 
-    fail((err) => {
-      error = err;
-    }, 'Oups!');
+    fail(callback, 'Oups!');
 
-    assert.equals(error.code, E_FAILED);
+    assert.calledOnceWith(callback, match({ code: E_FAILED }));
   });
 
   it('adds the given error code on the error object', () => {
-    let error;
+    const callback = sinon.fake();
 
-    fail(
-      (err) => {
-        error = err;
-      },
-      'Oups!',
-      INVALID
-    );
+    fail(callback, 'Oups!', INVALID);
 
-    assert.equals(error.code, INVALID);
+    assert.calledOnceWith(callback, match({ code: INVALID }));
   });
 
   it('adds the given cause on the error object', () => {
     const cause = new TypeError();
-    let error;
+    const callback = sinon.fake();
 
-    fail(
-      (err) => {
-        error = err;
-      },
-      'Oups!',
-      cause
-    );
+    fail(callback, 'Oups!', cause);
 
-    assert.equals(error.cause, cause);
+    assert.calledOnceWith(callback, match({ cause }));
   });
 
   it('adds the given cause and error code on the error object', () => {
     const cause = new TypeError();
-    let error;
+    const callback = sinon.fake();
 
-    fail(
-      (err) => {
-        error = err;
-      },
-      'Oups!',
-      cause,
-      INVALID
-    );
+    fail(callback, 'Oups!', cause, INVALID);
 
-    assert.equals(error.cause, cause);
-    assert.equals(error.code, INVALID);
+    assert.calledOnceWith(callback, match({ cause, code: INVALID }));
   });
 
   it('adds the given properties on the error object', () => {
-    let error;
+    const callback = sinon.fake();
 
-    fail(
-      (err) => {
-        error = err;
-      },
-      'Oups!',
-      INVALID,
-      { some: 42 }
+    fail(callback, 'Oups!', INVALID, { some: 42 });
+
+    assert.calledOnceWith(
+      callback,
+      match({ code: INVALID, properties: { some: 42 } })
     );
-
-    assert.equals(error.properties, { some: 42 });
-    assert.equals(error.code, INVALID);
+    const error = callback.firstCall.args[0];
     assert.isUndefined(error.cause);
   });
 
   it('does not allow to change the error code', () => {
-    let error;
-    fail(
-      (err) => {
-        error = err;
-      },
-      'Oups!',
-      INVALID
-    );
+    const callback = sinon.fake();
+    fail(callback, 'Oups!', INVALID);
+    const error = callback.firstCall.args[0];
 
     assert.exception(() => {
       error.code = 'X';
@@ -104,14 +74,9 @@ describe('fail', () => {
   });
 
   it('does not allow to change the cause', () => {
-    let error;
-    fail(
-      (err) => {
-        error = err;
-      },
-      'Oups!',
-      new TypeError()
-    );
+    const callback = sinon.fake();
+    fail(callback, 'Oups!', new TypeError());
+    const error = callback.firstCall.args[0];
 
     assert.exception(() => {
       error.cause = 'X';
@@ -119,15 +84,9 @@ describe('fail', () => {
   });
 
   it('does not allow to change the properties', () => {
-    let error;
-    fail(
-      (err) => {
-        error = err;
-      },
-      'Oups!',
-      INVALID,
-      { some: 42 }
-    );
+    const callback = sinon.fake();
+    fail(callback, 'Oups!', INVALID, { some: 42 });
+    const error = callback.firstCall.args[0];
 
     assert.exception(() => {
       error.properties = 'X';
@@ -135,15 +94,9 @@ describe('fail', () => {
   });
 
   it('does not allow to change the properties content', () => {
-    let error;
-    fail(
-      (err) => {
-        error = err;
-      },
-      'Oups!',
-      INVALID,
-      { some: 42 }
-    );
+    const callback = sinon.fake();
+    fail(callback, 'Oups!', INVALID, { some: 42 });
+    const error = callback.firstCall.args[0];
 
     assert.exception(() => {
       error.properties.some = 'X';
