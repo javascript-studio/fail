@@ -60,6 +60,7 @@ describe('failure', () => {
     const error = failure('Oups!', new TypeError());
 
     assert.exception(() => {
+      // @ts-expect-error
       error.cause = 'X';
     }, /TypeError/);
   });
@@ -68,6 +69,7 @@ describe('failure', () => {
     const error = failure('Oups!', INVALID, { some: 42 });
 
     assert.exception(() => {
+      // @ts-expect-error
       error.properties = 'X';
     }, /TypeError/);
   });
@@ -76,6 +78,7 @@ describe('failure', () => {
     const error = failure('Oups!', INVALID, { some: 42 });
 
     assert.exception(() => {
+      // @ts-expect-error
       error.properties.some = 'X';
     }, /TypeError/);
   });
