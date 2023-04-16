@@ -1,5 +1,22 @@
 # Changes
 
+## 1.7.0
+
+- 📚 [`0c1f18f`](https://github.com/javascript-studio/fail/commit/0c1f18fa0e0e00ccd174b342b1407f21b2027747)
+  Add property and parameter documentation
+- 📚 [`e253628`](https://github.com/javascript-studio/fail/commit/e253628e024d168330bc357fa2136a11b76f5451)
+  Add JSDoc comments
+- 📚 [`aa6cec9`](https://github.com/javascript-studio/fail/commit/aa6cec99800aeccca5778458962af86a2d4390ea)
+  Fix markup in readme
+- ✨ [`23b39a8`](https://github.com/javascript-studio/fail/commit/23b39a84a62d0f7c1b17f0c652f15bd8f27258aa)
+  Change test file extension convention
+- ✨ [`6514980`](https://github.com/javascript-studio/fail/commit/6514980108c27cfcac6b8e5c0e9281e43d9c813a)
+  Setup typescript and jsdoc
+- ✨ [`366f4a7`](https://github.com/javascript-studio/fail/commit/366f4a797b550ae1c66503bf024488f44968f88e)
+  Remove mocha from lintstagedrc
+
+_Released by [Maximilian Antoni](https://github.com/mantoni) on 2023-04-16._
+
 ## 1.6.1
 
 - 📚 [`ee755b0`](https://github.com/javascript-studio/fail/commit/ee755b0f97365224bda75096130902d4c388a565)
