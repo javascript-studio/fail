@@ -1,5 +1,28 @@
 # Changes
 
+## 1.8.0
+
+- ✨ [`b69ed20`](https://github.com/javascript-studio/fail/commit/b69ed204e2ffa2283af96e4cba02bd983865bbfc)
+  Drop node 14, add node 20
+- ✨ [`a9183ca`](https://github.com/javascript-studio/fail/commit/a9183caeb61961ba1991b34d77e9200db54755ea)
+  Update mocha
+- ✨ [`c42c964`](https://github.com/javascript-studio/fail/commit/c42c964f7ba95b6a7af0ad9f720c345250dc9721)
+  Upgrade husky and lint-staged
+- ✨ [`ec9c2b8`](https://github.com/javascript-studio/fail/commit/ec9c2b8d3580c38e9cf0facdd082193bfcb40efd)
+  Upgrade prettier to v3
+- ✨ [`a9f89eb`](https://github.com/javascript-studio/fail/commit/a9f89ebb07954922e4a86f2f601c3d74685a0a85)
+  Upgrade referee-sinon
+- ✨ [`b5dd5b0`](https://github.com/javascript-studio/fail/commit/b5dd5b027d6517f846aafc446b11cf3789af8515)
+  Upgrade Studio Changes
+- ✨ [`689ac1c`](https://github.com/javascript-studio/fail/commit/689ac1ced183873b17e3f181184d9c0974c4c9e8)
+  Improve types
+- ✨ [`38877bd`](https://github.com/javascript-studio/fail/commit/38877bd84eccca14a718042831d2cfaae422e5fb)
+  Update typescript
+- ✨ [`85c7502`](https://github.com/javascript-studio/fail/commit/85c7502b3815aefb58aa334f4158e6184b30c00c)
+  Upgrade eslint config and update eslint
+
+_Released by [Maximilian Antoni](https://github.com/mantoni) on 2024-01-29._
+
 ## 1.7.0
 
 - 📚 [`0c1f18f`](https://github.com/javascript-studio/fail/commit/0c1f18fa0e0e00ccd174b342b1407f21b2027747)
