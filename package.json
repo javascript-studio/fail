@@ -4,7 +4,7 @@
   "description": "Fail with an Error object and a conventional code property",
   "main": "lib/fail.js",
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16"
   },
   "scripts": {
     "lint": "eslint .",
