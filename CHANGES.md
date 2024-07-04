@@ -1,5 +1,12 @@
 # Changes
 
+## 1.8.1
+
+- 🐛 [`d13bc34`](https://github.com/javascript-studio/fail/commit/d13bc34746bf4e176ad09dee2959330e328c1573)
+  Allow error properties to be string[] and number[]
+
+_Released by [Maximilian Antoni](https://github.com/mantoni) on 2024-07-04._
+
 ## 1.8.0
 
 - ✨ [`b69ed20`](https://github.com/javascript-studio/fail/commit/b69ed204e2ffa2283af96e4cba02bd983865bbfc)
