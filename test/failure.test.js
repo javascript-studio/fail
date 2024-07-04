@@ -48,6 +48,18 @@ describe('failure', () => {
     assert.isUndefined(error.cause);
   });
 
+  it('supports string arrays as error properties', () => {
+    const error = failure('Oups!', INVALID, { some: ['a', 'b'] });
+
+    assert.equals(error.properties, { some: ['a', 'b'] });
+  });
+
+  it('supports number arrays as error properties', () => {
+    const error = failure('Oups!', INVALID, { some: [1, 2] });
+
+    assert.equals(error.properties, { some: [1, 2] });
+  });
+
   it('does not allow to change the error code', () => {
     const error = failure('Oups!', INVALID);
 
